@@ -1,0 +1,6 @@
+{
+  "usersData": [
+  { "id": 1, "name": "Tania", "username": "floppydiskette", "email": "v1@mail.ru", "phone": "+7 921 567894" },
+  { "id": 2, "name": "Max", "username": "maxfarseer", "email": "v2@mail.ru", "phone": "+7 924 944547" }
+]
+}
