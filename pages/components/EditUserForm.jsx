@@ -36,7 +36,7 @@ const EditUserForm = (props) => {
       </Row>
       <Button variant="primary" type="submit">
         Edit user
-      </Button>
+      </Button>{' '}
       <Button
         onClick={() => props.setEditing(false)}
         variant="primary"

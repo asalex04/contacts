@@ -9,32 +9,27 @@ import {useHttp} from "./hooks/http.hook";
 const baseUrl = 'http://localhost:4200/usersData/'
 
 const App = (props) => {
-  const [alert, setAlert] = useState(false);
+  // const [alert, setAlert] = useState(false);
   const {request, loading} = useHttp()
   const [users, setUsers] = useState([])
   const [editing, setEditing] = useState(false)
   const [currentUser, setCurrentUser] = useState({})
 
   useEffect(() => {
-    async function load() {
-      const res = await request(baseUrl)
-      setUsers(res)
-      setAlert(false)
-    }
-    load()
-  }, [alert])
+    setUsers(props.data)
+    // setAlert(false)
+  }, [props])
 
   const addUser = (user) => {
-    user.id = _.uniqueId()
-    // setUsers([...users, user]) // use of local base
+    user.id = (new Date()).getTime();
+    setUsers([...users, user])
     request(baseUrl, 'POST', user)
-    setAlert(true);
   }
 
   const removeUser = (id) => {
-    // setUsers(users.filter(user => user.id !== id)) // use of local base
+    setUsers(users.filter(user => user.id !== id))
     request(`${baseUrl}${id}`, 'DELETE')
-    setAlert(true);
+    // setAlert(true);
   }
 
   const editRow = (user) => {
@@ -49,9 +44,9 @@ const App = (props) => {
   }
   const editUser = (id, editUser) => {
     setEditing(false)
-    // setUsers(users.map(user => (user.id === id ? editUser : user))) // use of local base
+    setUsers(users.map(user => (user.id === id ? editUser : user)))
     request(`${baseUrl}${id}`, 'PUT', editUser)
-    setAlert(true);
+    // setAlert(true);
   }
 
   return (
@@ -82,4 +77,18 @@ const App = (props) => {
   );
 }
 
+export async function getStaticProps(context) {
+  const res = await fetch(baseUrl)
+  const data = await res.json()
+
+  if (!data) {
+    return {
+      notFound: true,
+    }
+  }
+
+  return {
+    props: { data },
+  }
+}
 export default App;
