@@ -1,25 +1,22 @@
-import {Form, Col, Row, Button} from 'react-bootstrap'
-import {useState} from "react";
+import {useEffect, useState} from 'react'
+import {Button, Col, Form, Row} from "react-bootstrap";
 
-const AddUserForm = props => {
-  const initialState = {
-    id: null,
-    name: '',
-    username: '',
-    email: '',
-    phone: '',
-  }
-  const [user, setUser] = useState(initialState)
+const EditUserForm = (props) => {
+  const [user, setUser] = useState(props.currentUser)
+
+  useEffect(() => {
+    setUser(props.currentUser)
+  }, [props])
 
   const handleChange = (e) => {
-    const {name, value} = e.currentTarget
-    setUser({...user, [name]: value})
+    const { name, value } = e.target
+
+    setUser({ ...user, [name]: value })
   }
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    props.addUser(user)
-      setUser(initialState)
+    props.editUser(user.id, user)
   }
 
   return (
@@ -38,10 +35,16 @@ const AddUserForm = props => {
         ))}
       </Row>
       <Button variant="primary" type="submit">
-        Add new user
+        Edit user
+      </Button>
+      <Button
+        onClick={() => props.setEditing(false)}
+        variant="primary"
+      >
+        Cancel
       </Button>
     </Form>
   )
 }
 
-export default AddUserForm
+export default EditUserForm

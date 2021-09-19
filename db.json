@@ -1,6 +1,25 @@
 {
   "usersData": [
-  { "id": 1, "name": "Tania", "username": "floppydiskette", "email": "v1@mail.ru", "phone": "+7 921 567894" },
-  { "id": 2, "name": "Max", "username": "maxfarseer", "email": "v2@mail.ru", "phone": "+7 924 944547" }
-]
+    {
+      "id": "1",
+      "name": "alex",
+      "username": "admin",
+      "email": "arc04@mail.ru",
+      "phone": "3546646644"
+    },
+    {
+      "id": "3",
+      "name": "grtee",
+      "username": "wffgkkll",
+      "email": "a@mail.ru",
+      "phone": "1111111444"
+    },
+    {
+      "id": "4",
+      "name": "alex02",
+      "username": "wffgkk",
+      "email": "a12@mail.ru",
+      "phone": "3333333333333"
+    }
+  ]
 }

@@ -21,7 +21,9 @@ const UserTable = props => {
             <td>{user.email}</td>
             <td>{user.phone}</td>
             <td>
-              <Button>Edit</Button>{' '}
+              <Button onClick={() => props.editRow(user)}>
+                Edit
+              </Button>{' '}
               <Button
                 variant="danger"
                 onClick={() => props.removeUser(user.id)}
