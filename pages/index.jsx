@@ -1,6 +1,5 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {useState, useEffect} from 'react'
-import _ from 'lodash'
 import AddUserForm from "./components/AddUserForm";
 import UserTable from "./components/UserTable";
 import EditUserForm from "./components/EditUserForm";
@@ -77,7 +76,7 @@ const App = (props) => {
   );
 }
 
-export async function getStaticProps(context) {
+export async function getServerSideProps(context) {
   const res = await fetch(baseUrl)
   const data = await res.json()
 
