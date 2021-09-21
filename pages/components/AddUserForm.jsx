@@ -19,7 +19,7 @@ const AddUserForm = props => {
   const handleSubmit = (e) => {
     e.preventDefault()
     props.addUser(user)
-      setUser(initialState)
+    setUser(initialState)
   }
 
   return (

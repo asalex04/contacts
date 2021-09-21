@@ -8,8 +8,7 @@ import {useHttp} from "./hooks/http.hook";
 const baseUrl = 'http://localhost:4200/usersData/'
 
 const App = (props) => {
-  // const [alert, setAlert] = useState(false);
-  const {request, loading} = useHttp()
+  const {request} = useHttp()
   const [users, setUsers] = useState([])
   const [editing, setEditing] = useState(false)
   const [currentUser, setCurrentUser] = useState({})
@@ -28,7 +27,6 @@ const App = (props) => {
   const removeUser = (id) => {
     setUsers(users.filter(user => user.id !== id))
     request(`${baseUrl}${id}`, 'DELETE')
-    // setAlert(true);
   }
 
   const editRow = (user) => {
@@ -45,7 +43,6 @@ const App = (props) => {
     setEditing(false)
     setUsers(users.map(user => (user.id === id ? editUser : user)))
     request(`${baseUrl}${id}`, 'PUT', editUser)
-    // setAlert(true);
   }
 
   return (

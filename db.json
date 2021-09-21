@@ -1,25 +1,11 @@
 {
   "usersData": [
     {
-      "id": "1",
-      "name": "alex",
-      "username": "admin",
-      "email": "arc04@mail.ru",
-      "phone": "35466466"
-    },
-    {
-      "id": 1632054058705,
-      "name": "alex02",
-      "username": "wffgkkkkkkk",
-      "email": "a@mail.ru",
-      "phone": "1111111444"
-    },
-    {
-      "id": 1632055535463,
-      "name": "grt",
-      "username": "loh",
-      "email": "a12@mail.ru",
-      "phone": "3546646644"
+      "id": 1632201861512,
+      "name": "",
+      "username": "",
+      "email": "",
+      "phone": ""
     }
   ]
 }
